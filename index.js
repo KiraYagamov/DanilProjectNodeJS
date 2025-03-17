@@ -30,23 +30,45 @@
 // }
 // console.log(line)
 
-let line = "0++FDSFDSF-fsdfsdfg0gfdg0gf0"
-let countPlus = 0
-let countMinus = 0
-let countZero = 0
+// let line = "0++FDSFDSF-fsdfsdfg0gfdg0gf0"
+// let countPlus = 0
+// let countMinus = 0
+// let countZero = 0
+
+// for (let i = 0; i < line.length; i++){
+//     if (line[i] == "+") {
+//         countPlus += 1
+//     }
+//     else if (line[i] == "-"){
+//         countMinus += 1
+//     }
+//     if (i < line.length-1 && line[i+1] == "0"){
+//         countZero += 1
+//     }
+// }2
+
+// console.log("Плюсов: " + countPlus)
+// console.log("Минусов: " + countMinus)
+// console.log("Символов перед нулями: " + countZero)
+
+
+let line = "dgfdgdf123gfdgdfg123dasdasddsdd"
+let numbers = "1234567890"
+let maxLength = 0
+let currentLength = 0
 
 for (let i = 0; i < line.length; i++){
-    if (line[i] == "+") {
-        countPlus += 1
+    if (numbers.includes(line[i])) {
+        currentLength += 1
     }
-    else if (line[i] == "-"){
-        countMinus += 1
-    }
-    if (i < line.length-1 && line[i+1] == "0"){
-        countZero += 1
+    else {
+        if (currentLength > maxLength) {
+            maxLength = currentLength
+        }
+        currentLength = 0
     }
 }
-
-console.log("Плюсов: " + countPlus)
-console.log("Минусов: " + countMinus)
-console.log("Символов перед нулями: " + countZero)
+if (currentLength > maxLength) {
+    maxLength = currentLength
+}
+console.log(maxLength)
