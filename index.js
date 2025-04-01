@@ -131,5 +131,102 @@ function sumArray(arr) {
 
 }
 
-let value = sumArray([5, 7, 2, 3, 8, 9]) // 34
-console.log(value)
+function dayOfWeek(number) {
+    const weekDays = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
+    if (number > 0 && number < 8) {
+        return weekDays[number - 1];
+    }
+    else {
+        return "Неверный день!";
+    }
+}
+
+const printArray = (arr) => {
+    for(let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+    }
+}
+
+const useFunction = (func) => {
+    func([1, 2, 3]);
+}
+
+// useFunction(printArray);
+
+function forEach(arr, func) {
+    for (let i = 0; i < arr.length; i++) {
+        func(arr[i], i);
+    }
+}
+
+// const array = ["Hello", "World"];
+
+// forEach(array, (el, i) => {
+//     console.log(el); 
+// });
+
+// const fruits = ['kiwi', 'apple', 'kiwi', 'orange', 'kiwi', 'apple'];
+// const count = {};
+
+// fruits.forEach(el => {
+//     if (!count[el]) {
+//         count[el] = 1;
+//     }
+//     else {
+//         count[el] += 1;
+//     }
+// });
+
+// console.log(count);
+
+
+// const fruits = ['kiwi', 'apple', 'kiwi', 'orange', 'kiwi', 'apple'];
+
+// const getUnique = (array) => {
+//     const unique = [];
+//     array.forEach(el => {
+//         if (!unique.includes(el)) {
+//             unique.push(el);
+//         }
+//     });
+//     return unique;
+// }
+
+// console.log(getUnique(fruits));
+
+// const array = [
+//     { name: 'alex', age: 20 }, 
+//     { name: 'mike', age: 24 },
+//     { name: 'masha', age: 20 }
+// ];
+
+// const index = array.findIndex(el => el.age === 20);
+// console.log(index);
+
+
+// const getSum = (arr) => {
+//     let sum = 0;
+//     arr.forEach(el => {
+//         sum += el;
+//     });
+//     return sum;
+// }
+
+// console.log(getSum([1, 2, 3, 4, 5]));
+
+const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min) + min);
+const getRandomString = (length) => {
+    const avaiableSymbols = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+    let result = "";
+    for (let i = 0; i < length; i++) {
+        const index = getRandomInt(0, avaiableSymbols.length);
+        result += avaiableSymbols[index];
+    }
+    return result;
+};
+
+const generateEmail = (length=10, domain="bomes.ru") => getRandomString(length) + "@" + domain;
+
+for (let i = 0; i < 20; i++) {
+    console.log(generateEmail());
+}
